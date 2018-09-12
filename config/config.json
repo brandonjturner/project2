@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "Turner@88",
+    "password": "process.env.DB_PASS",
     "database": "vanpool",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "Turner@88",
+    "password": "process.env.DB_PASS",
     "database": "vanpool",
     "host": "localhost",
     "dialect": "mysql",

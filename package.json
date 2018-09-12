@@ -13,9 +13,11 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
+    "expres": "0.0.5",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "mysql2": "^1.5.3",
+    "passport": "^0.4.0",
     "sequelize": "^4.38.0"
   },
   "devDependencies": {
@@ -38,5 +40,6 @@
   "bugs": {
     "url": "https://github.com/operationb/project2/issues"
   },
-  "homepage": "https://github.com/operationb/project2#readme"
+  "homepage": "https://github.com/operationb/project2#readme",
+  "keywords": []
 }

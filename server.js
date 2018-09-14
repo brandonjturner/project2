@@ -23,6 +23,9 @@ app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/apiRoutes")(app);
+require("./routes/peopleApiRoutes.js")(app);
+require("./routes/carApiRoutes.js")(app);
+require("./routes/carpoolApiRoutes.js")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };

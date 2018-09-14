@@ -26,6 +26,7 @@ var API = {
     });
   }
 };
+
 var refreshExamples = function() {
   API.getExamples().then(function(data) {
     var $examples = data.map(function(example) {
@@ -53,6 +54,7 @@ var refreshExamples = function() {
     $exampleList.append($examples);
   });
 };
+
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
@@ -73,6 +75,7 @@ var handleFormSubmit = function(event) {
   $exampleText.val("");
   $exampleDescription.val("");
 };
+
 var handleDeleteBtnClick = function() {
   var idToDelete = $(this)
     .parent()
@@ -81,5 +84,6 @@ var handleDeleteBtnClick = function() {
     refreshExamples();
   });
 };
+
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);

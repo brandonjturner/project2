@@ -33,6 +33,18 @@ if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
 
+//initializing passport
+var express = require('express');
+var app = express();
+app.get('/', function(req, res) {
+    res.send('Welcome to Passport with Sequelize');
+});
+app.listen(5000, function(err) {
+    if (!err)
+        console.log("Site is live");
+    else console.log(err)
+});
+
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {

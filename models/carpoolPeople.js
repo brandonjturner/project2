@@ -1,8 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
     var CarpoolPeople = sequelize.define("CarpoolPeople", {
-      carpoolID: {
+      cpID: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: false
       },
       passengerID: {
         type: DataTypes.INTEGER,

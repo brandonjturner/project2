@@ -1,13 +1,5 @@
 // Routes
-require("./routes/apiRoutes")(app);
-<<<<<<< HEAD
-//require("./routes/peopleApiRoutes.js")(app);
-//require("./routes/carApiRoutes.js")(app);
-//require("./routes/carpoolApiRoutes.js")(app);
-=======
->>>>>>> bf471d96ee8be2352966315564c928cfe4c75320
-require("./routes/htmlRoutes")(app);
-require("./Controllers/login.js")(app);
+
 
 var express = require('express')
 var app = express()
@@ -42,7 +34,12 @@ app.set('view engine', '.hbs');
 app.get('/', function(req, res) {
     res.send('Welcome to Passport with Sequelize');
 });
- 
+ require("./routes/apiRoutes")(app);
+//require("./routes/peopleApiRoutes.js")(app);
+//require("./routes/carApiRoutes.js")(app);
+//require("./routes/carpoolApiRoutes.js")(app);
+require("./routes/htmlRoutes")(app);
+require("./Controllers/login.js")(app);
 //Models
 var models = require("./app/models");
 

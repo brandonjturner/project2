@@ -18,22 +18,14 @@ passport.use(new LocalStrategy(
             }
             return done(null, user);
         });
-    }
+    }    
 ));
 
-<<<<<<< HEAD
-  app.post('/login', 
+app.post('/login', 
   passport.authenticate('local', { failureRedirect: '/login' }),
   function(req, res) {
     res.redirect('/');
   });
-};
-=======
-app.post('/login',
-    passport.authenticate('local', {
-        failureRedirect: '/login'
-    }),
-    function (req, res) {
-        res.redirect('/');
-    });
->>>>>>> bf471d96ee8be2352966315564c928cfe4c75320
+}
+
+  

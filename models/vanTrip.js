@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var CarpoolInstance = sequelize.define("CarpoolInstance", {
+  var VanTrip = sequelize.define("VanTrip", {
     carpool: {
       type: DataTypes.INTEGER,
       allowNull: false
@@ -21,5 +21,14 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
-  return CarpoolInstance;
+
+  VanTrip.associate = function(models) {
+    // Associating VanTrip with VanTripGroup
+    // When an VanTrip is deleted, also delete any associated VanTripGroup
+    VanTrip.hasMany(models.VanTripGroup, {
+      onDelete: "cascade"
+    });
+  }
+
+  return VanTrip;
 };

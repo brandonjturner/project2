@@ -60,6 +60,19 @@ app.use(passport.session()); // persistent login sessions
 
 var env = require('dotenv').load();
 
+//Models
+var models = require("./app/models");
+
+//Routes
+var authRoute = require('./app/routes/auth.js')(app);
+ 
+//Sync Database
+models.sequelize.sync().then(function() {
+    console.log('Nice! Database looks fine')
+}).catch(function(err) {
+    console.log(err, "Something went wrong with the Database Update!")
+});
+
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {

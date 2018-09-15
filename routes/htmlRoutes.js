@@ -1,22 +1,39 @@
 var db = require("../models");
+var express = require('express');
+var router = express.Router();
 
-module.exports = function(app) {
-  // Load index page
-  app.get("/", function(req, res) {
-    res.render("index");
-  });
+function isAuthenticated(req, res, next) {
+  debugger;
+  if (req.user.authenticated) {
+    return next();
+  }
 
-  // Load example page and pass in an example by id
-  app.get("/create", function(req, res) {
-    res.render("create");
-  });
+  console.log('hi from isAuthenticated failed')
+  res.redirect('/');
+}
 
-  app.get("/join", function(req, res) {
-    res.render("join");
-  });
 
-  // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
-  });
-};
+
+// Load index page
+router.get("/", function(req, res) {
+  res.render("index");
+});
+
+
+// router.use(isAuthenticated);
+
+// Load example page and pass in an example by id
+router.get("/create", function(req, res) {
+  res.render("create");
+});
+
+router.get("/join", function(req, res) {
+  res.render("join");
+});
+
+// Render 404 page for any unmatched routes
+router.get("*", function(req, res) {
+  res.render("404");
+});
+
+module.exports = router;

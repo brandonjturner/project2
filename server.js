@@ -1,8 +1,11 @@
 // Routes
 require("./routes/apiRoutes")(app);
+<<<<<<< HEAD
 //require("./routes/peopleApiRoutes.js")(app);
 //require("./routes/carApiRoutes.js")(app);
 //require("./routes/carpoolApiRoutes.js")(app);
+=======
+>>>>>>> bf471d96ee8be2352966315564c928cfe4c75320
 require("./routes/htmlRoutes")(app);
 require("./Controllers/login.js")(app);
 

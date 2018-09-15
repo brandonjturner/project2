@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Car = sequelize.define("Car", {
+    var VanList = sequelize.define("VanList", {
       make: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -22,15 +22,15 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
 
-    Car.associate = function(models) {
-        // We're saying that a Post should belong to an People
-        // A Car can't be created without an People due to the foreign key constraint
-        Car.belongsTo(models.People, {
+    VanList.associate = function(models) {
+        // We're saying that a Post should belong to an PeopleList
+        // A VanList can't be created without an PeopleList due to the foreign key constraint
+        VanList.belongsTo(models.PeopleList, {
           foreignKey: {
             allowNull: false
           }
         });
     };
   
-    return Car;
+    return VanList;
   };

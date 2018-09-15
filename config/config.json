@@ -1,14 +1,15 @@
 {
   "development": {
     "username": "root",
-    "password": "TURNER@88",
+    "password": "password",
     "database": "vanpool",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "TURNER@88",
+    "password": "password",
+
     "database": "vanpool",
     "host": "localhost",
     "dialect": "mysql",

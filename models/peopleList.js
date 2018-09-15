@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var People = sequelize.define("People", {
+    var PeopleList = sequelize.define("PeopleList", {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -21,22 +21,22 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
 
-    People.associate = function(models) {
-        // Associating People with Car
-        // When an People is deleted, also delete any associated Car
-        People.hasMany(models.Car, {
+    PeopleList.associate = function(models) {
+        // Associating PeopleList with Car
+        // When an PeopleList is deleted, also delete any associated Car
+        PeopleList.hasMany(models.VanList, {
           onDelete: "cascade"
         });
 
-        People.hasMany(models.Carpool, {
+        PeopleList.hasMany(models.Van, {
             onDelete: "cascade"
         });
 
-        People.hasMany(models.CarpoolPeople, {
+        PeopleList.hasMany(models.VanGroup, {
             onDelete: "cascade"
         });
 
       };
   
-    return People;
+    return PeopleList;
   };

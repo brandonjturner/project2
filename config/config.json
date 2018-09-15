@@ -9,7 +9,6 @@
   "test": {
     "username": "root",
     "password": "password",
-
     "database": "vanpool",
     "host": "localhost",
     "dialect": "mysql",

@@ -27,5 +27,5 @@ module.exports = function (app) {
         }),
         function (req, res) {
             res.redirect('/');
-        });
+    });
 }

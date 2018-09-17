@@ -1,3 +1,7 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+h2 {
+  font-size: 3em !important;
+}

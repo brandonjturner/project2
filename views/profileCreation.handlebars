@@ -1,33 +1,42 @@
 <div class="container">
-    <label for="input_email">Email</label>
-    <input type="email" class="form-control" id="input_email">
-    
-    <label for="input_password">Password</label>
-    <input type="password" class="form-control" id="input_password">
-   
-    <label for="input_firstname">First Name</label>
-    <input type="text" class="form-control" id="input_firstname">
-   
-    <label for="input_lastname">Last Name</label>
-    <input type="text" class="form-control" id="input_lastname">
 
-    <label for="input_companyName">Company Name</label>
-    <input type="text" id="input_companyName">
-    
-    <label for="input_homeAddress">Home Address</label>
-    <input type="address" class="form-control" id="input_homeAddress">
-   
-    <label for="input_phoneNumber">Phone Number</label>
-    <input type="phonenumber" class="form-control" id="input_phoneNumber">
-    
-    <label for="input_about">About Me</label>
-    <input type="text" class="form-control" id="input_about">
-    
-    <label for="input_prePickup">Preferred Pickup Location</label>
-    <input type="text" class="form-control" id="input_prePickup">
-    
-    <label for="input_admin">Admin Code</label>
-    <input type="password" class="form-control" id="input_admin">
-    
-    <button id="user-submit-btn">Submit</button>
+    <form class="clearfix mb-4" action="POST">
+        <div class="form-group">
+            <label for="input_email">Email</label>
+            <input type="email" class="form-control" id="input_email">
+        </div>
+        <div class="form-group">
+            <label for="input_password">Password</label>
+            <input type="password" class="form-control" id="input_password">
+        </div>
+        <div class="form-group">
+            <label for="input_firstname">First Name</label>
+            <input type="text" class="form-control" id="input_firstname">
+        </div>
+        <div class="form-group">
+            <label for="input_lastname">Last Name</label>
+            <input type="text" class="form-control" id="input_lastname">
+        </div>
+        <div class="form-group">
+            <label for="input_homeAddress">Address</label>
+            <input type="address" class="form-control" id="input_homeAddress">
+        </div>
+        <div class="form-group">
+            <label for="input_phoneNumber">Phone Number</label>
+            <input type="phonenumber" class="form-control" id="input_phoneNumber">
+        </div>
+        <div class="form-group">
+            <label for="input_about">About</label>
+            <input type="text" class="form-control" id="input_about">
+        </div>
+        <div class="form-group">
+            <label for="input_prePickup">Pre-Pickup</label>
+            <input type="text" class="form-control" id="input_prePickup">
+        </div>
+        <div class="form-group">
+            <label for="input_admin">Admin Password</label>
+            <input type="password" class="form-control" id="input_admin">
+        </div>
+        <button id="user-submit-btn">Submit</button>
+    </form>
 </div>

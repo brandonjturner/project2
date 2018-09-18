@@ -35,7 +35,6 @@ module.exports = function (app) {
 
   app.post("/api/peoplelist", function (req, res) {
     // Create a PeopleList with the data available to us in req.body
-    console.log(req.body);
     db.PeopleList.create(req.body).then(function (dbPeople) {
       res.json(dbPeople);
     });
@@ -59,7 +58,6 @@ module.exports = function (app) {
   //Description: 
   // Find all VanList and return them to the user with res.json
   app.get("/api/vanlists", function (req, res) {
-    console.log('hello');
     db.VanList.findAll({}).then(function (dbVanList) {
       res.json(dbVanList);
     });

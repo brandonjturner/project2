@@ -6,11 +6,12 @@ module.exports = function(app) {
     res.render("index");
   });
 
-  // Load example page and pass in an example by id
+  // Load create page
   app.get("/create", function(req, res) {
     res.render("create");
   });
 
+  // Load join page
   app.get("/join", function(req, res) {
     res.render("join");
   });

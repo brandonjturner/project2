@@ -7,49 +7,73 @@ module.exports = function(sequelize, Sequelize) {
             primaryKey: true,
             type: Sequelize.INTEGER
         },
- 
-        firstname: {
-            type: Sequelize.STRING,
-            notEmpty: true
-        },
- 
-        lastname: {
-            type: Sequelize.STRING,
-            notEmpty: true
-        },
- 
-        username: {
-            type: Sequelize.TEXT
-        },
- 
-        about: {
-            type: Sequelize.TEXT
-        },
- 
+
         email: {
             type: Sequelize.STRING,
             validate: {
                 isEmail: true
-            }
+            },
+            allowNull: false
         },
- 
+
         password: {
             type: Sequelize.STRING,
             allowNull: false
         },
  
-        last_login: {
-            type: Sequelize.DATE
+        first_name: {
+            type: Sequelize.STRING,
+            notEmpty: true,
+            allowNull: false
         },
  
+        last_name: {
+            type: Sequelize.STRING,
+            notEmpty: true,
+            allowNull: false
+        },
+
+        home_address: {
+            type: Sequelize.STRING,
+            notEmpty: true,
+            allowNull: false
+        },
+
+        phone_number: {
+            type: Sequelize.STRING,
+            notEmpty: true,
+            allowNull: false
+        },
+
+        about: {
+            type: Sequelize.TEXT
+        },
+
+        last_login: {
+            type: Sequelize.DATE,
+            allowNull: true,
+            defaultValue: Sequelize.NOW()
+        },
+
+        pref_pickup: {
+            type: Sequelize.STRING,
+            notEmpty: true,
+            allowNull: false 
+        },
+
+        admin: {
+            type: Sequelize.BOOLEAN,
+            defaultValue: false
+        },
+        
         status: {
             type: Sequelize.ENUM('active', 'inactive'),
             defaultValue: 'active'
         }
- 
- 
+
+
     });
- 
+
     return User;
  
 }

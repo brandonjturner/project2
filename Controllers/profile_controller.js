@@ -19,17 +19,17 @@ module.exports = function(app) {
     });
 
     // Posts a new user to user table
-    app.post("/api/user", function (req,res) {
+    app.post("/create/user", function (req, res) {
         var adminCheck = req.body.input_admin;
         var adminCode = 'admin';
         var isUserAdmin = false;
-        if (adminCheck === adminCode) { var isUserAdmin = true; }
+        if (adminCheck == adminCode) { isUserAdmin = true; }
         
         db.User.create({
             email: req.body.input_email,
             password: req.body.input_password,
-            first_name: req.body.input_firstname,
-            last_name: req.body.input_lastname,
+            first_name: req.body.input_firstName,
+            last_name: req.body.input_lastName,
             company_name: req.body.input_companyName,
             home_address: req.body.input_homeAddress,
             phone_number: req.body.input_phoneNumber,
@@ -38,6 +38,7 @@ module.exports = function(app) {
             admin: isUserAdmin
         })
         .then(function(data) {
+            //console.log(adminCheck);
             if (data === null) {
                 res.status(404).end();
             }

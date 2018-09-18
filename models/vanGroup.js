@@ -1,33 +1,39 @@
 module.exports = function(sequelize, DataTypes) {
     var VanGroup = sequelize.define("VanGroup", {
-      cpID: {
+      cp_ID: {
         type: DataTypes.INTEGER,
-        allowNull: false
       },
-      passengerID: {
-        type: DataTypes.INTEGER,
-        allowNull: false
+      pickup_point: {
+        type: DataTypes.STRING,
+        //need to change
+        allowNull: true, 
       },
-      currentRider: {
-          type: DataTypes.BOOLEAN,
-          allowNull: true
+      passenger_ID: {
+        type: DataTypes.UUID,
+        allowNull: true,
+        foreignKey: true
+      },
+      current_rider: {
+        type: DataTypes.BOOLEAN,
+        allowNull: true
       }
     });
 
     VanGroup.associate = function(models) {
         // We're saying that a VanGroup should belong to an User
         // A VanGroup can't be created without a User due to the foreign key constraint
-        VanGroup.belongsTo(models.User, {
-          foreignKey: {
-            allowNull: false
-          }
+        VanGroup.belongsTo(models.User, 
+          {
+            foreignKey: 'passenger_ID'
+
         });
 
-        VanGroup.belongsTo(models.Van, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
+        // TODO: commented out for testing
+        // VanGroup.belongsTo(models.Van, {
+        //     foreignKey: {
+        //         allowNull: false
+        //     }
+        // });
     };
   
   

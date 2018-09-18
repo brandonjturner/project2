@@ -92,7 +92,8 @@ module.exports = function(sequelize, Sequelize) {
         });
 
         User.hasMany(models.VanGroup, {
-            onDelete: "cascade"
+            onDelete: "cascade",
+            foreignKey: "passenger_ID"
         });
 
       };

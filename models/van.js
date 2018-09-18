@@ -14,9 +14,9 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   Van.associate = function(models) {
-    // We're saying that a Van should belong to an PeopleList
-    // A Van can't be created without an PeopleList due to the foreign key constraint
-    Van.belongsTo(models.PeopleList, {
+    // We're saying that a Van should belong to an User
+    // A Van can't be created without a User due to the foreign key constraint
+    Van.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }

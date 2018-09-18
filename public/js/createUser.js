@@ -19,7 +19,7 @@ $(function() {
         }; 
     
         // Send the POST request.
-        $.ajax("/create/user", {
+        $.ajax("/profile/create", {
             type: "POST",
             data: newUser
         }).then(

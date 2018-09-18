@@ -11,6 +11,10 @@ module.exports = function(app) {
     res.render("create");
   });
 
+  app.get("/create-profile", function(req, res) {
+    res.render("profileCreation");
+  });
+
   // Load join page
   app.get("/join", function(req, res) {
     res.render("join");

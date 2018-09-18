@@ -35,7 +35,7 @@ module.exports = function (app) {
 
   app.post("/api/users", function (req, res) {
     // Create a User with the data available to us in req.body
-    console.log("hi");
+    // console.log("hi");
     db.User.create(req.body).then(function (dbPeople) {
       res.json(dbPeople);
     });

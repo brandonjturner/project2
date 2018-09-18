@@ -33,6 +33,12 @@ module.exports = function(sequelize, Sequelize) {
             allowNull: false
         },
 
+        company_name: {
+            type: Sequelize.STRING,
+            notEmpty: true,
+            allowNull: false
+        },
+
         home_address: {
             type: Sequelize.STRING,
             notEmpty: true,

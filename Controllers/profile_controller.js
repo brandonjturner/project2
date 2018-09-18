@@ -30,6 +30,7 @@ module.exports = function(app) {
             password: req.body.input_password,
             first_name: req.body.input_firstname,
             last_name: req.body.input_lastname,
+            company_name: req.body.input_companyName,
             home_address: req.body.input_homeAddress,
             phone_number: req.body.input_phoneNumber,
             about: req.body.input_about,

@@ -33,11 +33,11 @@ module.exports = function(sequelize, Sequelize) {
             allowNull: false
         },
 
-        company_name: {
-            type: Sequelize.STRING,
-            notEmpty: true,
-            allowNull: false
-        },
+        // company_name: {
+        //     type: Sequelize.STRING,
+        //     notEmpty: true,
+        //     allowNull: false
+        // },
 
         home_address: {
             type: Sequelize.STRING,
@@ -49,10 +49,6 @@ module.exports = function(sequelize, Sequelize) {
             type: Sequelize.STRING,
             notEmpty: true,
             allowNull: false
-        },
-
-        about: {
-            type: Sequelize.TEXT
         },
 
         last_login: {

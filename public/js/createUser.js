@@ -11,10 +11,9 @@ $(function() {
             input_password: $("#input_password").val().trim(),
             input_firstName: $("#input_firstname").val().trim(),
             input_lastName: $("#input_lastname").val().trim(),
-            input_companyName: $("#input_companyName").val().trim(),
+            //input_companyName: $("#input_companyName").val().trim(),
             input_homeAddress: $("#input_homeAddress").val().trim(),
             input_phoneNumber: $("#input_phoneNumber").val().trim(),
-            input_about: $("#input_about").val().trim(),
             input_prefPickup: $("#input_prePickup").val().trim(),
             input_admin: $("#input_admin").val().trim()
         }; 
@@ -32,15 +31,6 @@ $(function() {
             location.reload();
             }
         );
-
-        var joinGroup = {
-            userID: 1
-        };
-
-        $.ajax("/join/group", {
-            type: "POST",
-            data: joinGroup
-        }).then(function () {console.log('Group joined.')})
     });
 });
   

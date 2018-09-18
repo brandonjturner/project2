@@ -1,7 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
     var VanGroup = sequelize.define("VanGroup", {
-      cp_ID: {
+      vanGroup_ID: {
         type: DataTypes.INTEGER,
+        allowNull: false
       },
       pickup_point: {
         type: DataTypes.STRING,
@@ -9,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: true, 
       },
       passenger_ID: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         allowNull: true,
         foreignKey: true
       },

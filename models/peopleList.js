@@ -21,22 +21,22 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
 
-    PeopleList.associate = function(models) {
-        // Associating PeopleList with Car
-        // When an PeopleList is deleted, also delete any associated Car
-        PeopleList.hasMany(models.VanList, {
-          onDelete: "cascade"
-        });
+    // PeopleList.associate = function(models) {
+    //     // Associating PeopleList with Car
+    //     // When an PeopleList is deleted, also delete any associated Car
+    //     PeopleList.hasMany(models.VanList, {
+    //       onDelete: "cascade"
+    //     });
 
-        PeopleList.hasMany(models.Van, {
-            onDelete: "cascade"
-        });
+    //     PeopleList.hasMany(models.Van, {
+    //         onDelete: "cascade"
+    //     });
 
-        PeopleList.hasMany(models.VanGroup, {
-            onDelete: "cascade"
-        });
+    //     PeopleList.hasMany(models.VanGroup, {
+    //         onDelete: "cascade"
+    //     });
 
-      };
+    //   };
   
     return PeopleList;
   };

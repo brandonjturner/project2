@@ -6,15 +6,24 @@ module.exports = function(app) {
     app.get("/profile", function(req, res) {
         db.User.findAll({
             where: {
-                id: req.body.userId
+                id: 2//req.body.userId
             },
             include: [{model: db.VanGroup}]
         })
         .then(function(data) {
+            var isAdmin = data.admin;
             var handlebarsObj = {
-                user_data: data
+                user: data[0].dataValues,
+                admin: data[0].dataValues
             };
 
+            if (isAdmin === true) {
+                handlebarsObj.user = false;
+            }
+            else {
+                handlebarsObj.admin = false;
+            }
+            console.log(handlebarsObj.user);
             res.render("index", handlebarsObj);
         });
     });

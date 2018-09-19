@@ -1,24 +1,25 @@
 module.exports = function(sequelize, DataTypes) {
   var VanTrip = sequelize.define("VanTrip", {
-    carpool: {
+    van_ID: {
+      type: DataTypes.INTEGER,
+      //TODO: change when vans are created
+      allowNull: true
+    },
+    driver_ID: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    car: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    beginTime: {
+    begin_time: {
       type: DataTypes.TIME,
       allowNull: false
     },
-    endTime: {
+    end_time: {
       type: DataTypes.TIME,
       allowNull: false
     },
-    distanceTraveled: {
+    distance_traveled: {
       type: DataTypes.FLOAT,
-      allowNull: false
+      allowNull: true
     }
   });
 
@@ -26,7 +27,8 @@ module.exports = function(sequelize, DataTypes) {
     // Associating VanTrip with VanTripGroup
     // When an VanTrip is deleted, also delete any associated VanTripGroup
     VanTrip.hasMany(models.VanTripGroup, {
-      onDelete: "cascade"
+      onDelete: "cascade",
+      foreignKey: "vanTripGroup_ID"
     });
   }
 

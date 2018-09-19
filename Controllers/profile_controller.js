@@ -7,7 +7,8 @@ module.exports = function(app) {
         db.User.findAll({
             where: {
                 id: req.body.userId
-            }
+            },
+            include: [{model: db.VanGroup}]
         })
         .then(function(data) {
             var handlebarsObj = {
@@ -18,28 +19,15 @@ module.exports = function(app) {
         });
     });
 
-    //displays all groups current user is a part of
-    app.get("/profile/group", function (req, res) {
-        var userID = req.body.user_ID;
-        db.findAll({
-            where: {
-                id: userID
-            },
-            include: [{model: VanGroup}]
-        }).then(function(data) {
-            res.render("index", data);
-        });
-    });
-
     // Posts a new user to user table
-    app.post("/create/user", function (req, res) {
+    app.post("/profile/create", function (req, res) {
         var adminCheck = req.body.input_admin;
         var adminCode = 'admin';
         var isUserAdmin = false;
         if (adminCheck == adminCode) { isUserAdmin = true; }
         
         db.User.create({
-            email: req.body.input_email,
+            email: req.body.email,
             password: req.body.input_password,
             first_name: req.body.input_firstName,
             last_name: req.body.input_lastName,

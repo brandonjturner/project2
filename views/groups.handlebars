@@ -1,9 +1,9 @@
 <div class="container">
   <h2>Available Vanpools</h2>
   <div class="list-group">
-    <a href="#" class="list-group-item">Thousand Oaks to Large Company 1</a>
-    <a href="#" class="list-group-item">Thousand Oaks to Large Company 2</a>
-    <a href="#" class="list-group-item">Thousand Oaks to Large Company 3</a>
+    {{#each data}}
+    {{> groups/listGroup}}
+    {{/each}}
   </div>
 
 </div>

@@ -16,19 +16,28 @@ module.exports = function(app) {
         });
     });
 
-     // Returns user profile with provided ID  from body
+     // Returns user profile with provided ID from body
      app.get("/profile/:id", function(req, res) {
         db.User.findAll({
             where: {
-                    id: req.body.input_user_ID
+                    id: req.params.input_user_ID
             },
             include: [{model: db.VanGroup}]
         })
         .then(function(data) {
+            var isAdmin = data.admin;
             var handlebarsObj = {
-                user_data: data
+                user: data[0].dataValues,
+                admin: data[0].dataValues
             };
 
+            if (isAdmin === true) {
+                handlebarsObj.user = false;
+            }
+            else {
+                handlebarsObj.admin = false;
+            }
+            console.log(handlebarsObj.user);
             res.render("index", handlebarsObj);
         });
     });

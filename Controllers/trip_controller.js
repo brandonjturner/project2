@@ -9,6 +9,17 @@ module.exports = function(app) {
         });
     });
 
+    app.get("trip/:id", function (req, res) {
+        db.VanTrip.findAll({
+            where: {
+                id: req.params.id
+            },
+            include: {model: db.VanTripGroup}
+        }).then(function (data) {
+            res.json(data)
+        });
+    });
+
     //creates a new van trip
     app.post("trip/create", function (req, res) {
         db.VanTrip.create({

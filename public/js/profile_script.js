@@ -13,7 +13,7 @@ $(document).ready(function() {
             //input_companyName: $("#input_companyName").val().trim(),
             input_homeAddress: $("#input_homeAddress").val().trim(),
             input_phoneNumber: $("#input_phoneNumber").val().trim(),
-            input_prefPickup: $("#input_prePickup").val().trim(),
+            input_prefPickup: $("#sel1").val().trim(),
             input_admin: $("#input_admin").val().trim()
         }; 
     

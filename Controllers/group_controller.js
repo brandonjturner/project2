@@ -6,7 +6,7 @@ module.exports = function(app) {
         db.VanGroup.aggregate(
             'vanGroup_ID', 'DISTINCT', { plain: false }
         ).then(function(data) {
-            res.render("index", data);
+            res.render("groups", data);
         });
     });
     

@@ -2,7 +2,12 @@ module.exports = function(sequelize, DataTypes) {
     var VanGroup = sequelize.define("VanGroup", {
       vanGroup_ID: {
         type: DataTypes.INTEGER,
+        defaultValue: DataTypes.AUTO_INCREMENT,
         allowNull: false
+      },
+      vanGroup_admin_ID: {
+        type: DataTypes.INTEGER,
+        allowNull: true, 
       },
       pickup_point: {
         type: DataTypes.STRING,

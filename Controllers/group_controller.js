@@ -13,7 +13,7 @@ module.exports = function(app) {
     // Joins a group
     app.post("/group/join", function (req, res) {
         db.VanGroup.create({
-            vanGroup_ID: req.body.input_group_ID,
+            vanGroup_ID: req.body.input_vanGroup_ID,
             passenger_ID: req.body.input_user_ID,
             pickup_point: req.body.input_pickup_point
         }).then(function(data) {

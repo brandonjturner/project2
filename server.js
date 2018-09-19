@@ -27,8 +27,9 @@ app.set("view engine", "handlebars");
 require("./routes/apiRoutes")(app);
 require("./Controllers/login_controller")(app);
 require("./Controllers/profile_controller")(app);
-//TODO: require("./Controllers/trip_controller")(app);
-//TODO: require("./Controllers/admin_controller")(app);
+require("./Controllers/trip_controller")(app);
+require("./Controllers/admin_controller")(app);
+require("./Controllers/group_controller")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };

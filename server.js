@@ -44,11 +44,11 @@ if (process.env.NODE_ENV === "test") {
 app.get('/', function(req, res) {
     res.send('Welcome to Passport with Sequelize');
 });
-app.listen(5000, function(err) {
-    if (!err)
-        console.log("Site is live");
-    else console.log(err)
-});
+// app.listen(3000, function(err) {
+//     if (!err)
+//         console.log("Site is live");
+//     else console.log(err)
+// });
 
 var passport   = require('passport')
 var session    = require('express-session')

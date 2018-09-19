@@ -1,12 +1,26 @@
 var db = require("../models");
+const Sequelize = require("sequelize");
 
 module.exports = function(app) {
 
-    // Returns user profile with provided ID from body
-    app.get("/profile", function(req, res) {
+    // Returns user profile with provided email from body
+    app.get("/profile/:email", function(req, res) {
         db.User.findAll({
             where: {
-                id: req.body.userId
+                email: req.params.email
+            },
+            include: [{model: db.VanGroup}]
+        })
+        .then(function(data) {
+            res.json(data);
+        });
+    });
+
+     // Returns user profile with provided ID  from body
+     app.get("/profile/:id", function(req, res) {
+        db.User.findAll({
+            where: {
+                    id: req.body.input_user_ID
             },
             include: [{model: db.VanGroup}]
         })
@@ -27,7 +41,7 @@ module.exports = function(app) {
         if (adminCheck == adminCode) { isUserAdmin = true; }
         
         db.User.create({
-            email: req.body.email,
+            email: req.body.input_email,
             password: req.body.input_password,
             first_name: req.body.input_firstName,
             last_name: req.body.input_lastName,

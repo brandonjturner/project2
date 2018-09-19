@@ -1,10 +1,9 @@
-$(function() {
+$(document).ready(function() {
   
-    //on click action for submit button
+    //on click action to submit post for new user creation
     $("#user-submit-btn").on("click", function(event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
-        
         //grab new user info from form
         var newUser = {
             input_email: $("#input_email").val().trim(),
@@ -25,12 +24,33 @@ $(function() {
         }).then(
             function() {
             console.log("Created new user.");
-            
-            
+
             // Reload the page to get the updated list
             location.reload();
             }
         );
+
+        
     });
+
+    $(window).on("unload", function(event) {
+        
+        var newUser = {
+            input_email: $("#input_email").val().trim()
+        }
+        console.log(newUser.input_email);
+
+        $.ajax({url:"/profile/" + newUser.input_email, async: false, success: function (result) {
+            console.log(result);
+            if (result[0] != null) {
+                var userID = result[0].id;
+                sessionStorage.setItem('current-User-ID', userID);
+            }
+        }});
+
+    });
+
+    
+
 });
   

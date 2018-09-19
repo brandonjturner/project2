@@ -3,6 +3,7 @@
 
 var express = require('express');
 var app = express();
+<<<<<<< HEAD
 var passport = require('passport');
 var LocalStrategy = require ("passport-local").Strategy;
 var session = require('express-session');
@@ -10,6 +11,9 @@ var bodyParser = require('body-parser');
 var env = require('dotenv').load();
 var exphbs = require('express-handlebars');
 var db = require("./models");
+=======
+// var passport = require("passport");
+>>>>>>> e7db8718e8c571c73c4d807d3d2dc642b9a246f7
 var PORT = process.env.PORT || 3000;
 
 //For BodyParser
@@ -17,6 +21,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
+<<<<<<< HEAD
  
 // For Passport
 app.use(session({
@@ -24,6 +29,10 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 })); // session secret
+=======
+//app.use(express.static("public"));
+app.use(express.static(__dirname+'/public'));
+>>>>>>> e7db8718e8c571c73c4d807d3d2dc642b9a246f7
 
 //serialize
 passport.serializeUser(function(user, done) {
@@ -34,6 +43,7 @@ passport.serializeUser(function(user, done) {
  
 });
 
+<<<<<<< HEAD
 // deserialize user 
 passport.deserializeUser(function(id, done) {
     debugger;
@@ -70,6 +80,16 @@ passport.use(new LocalStrategy(
         });
     }    
 )); 
+=======
+// Routes
+require("./routes/apiRoutes")(app);
+require("./Controllers/login_controller")(app);
+require("./Controllers/profile_controller")(app);
+require("./Controllers/trip_controller")(app);
+require("./Controllers/admin_controller")(app);
+require("./Controllers/group_controller")(app);
+require("./routes/htmlRoutes")(app);
+>>>>>>> e7db8718e8c571c73c4d807d3d2dc642b9a246f7
 
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions

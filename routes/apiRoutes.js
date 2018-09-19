@@ -15,16 +15,16 @@ module.exports = function (app) {
   //-----******-----PEOPLE API ROUTES-----*****----------******-----PEOPLE API ROUTES-----*****-----
   //Description: 
 
-  // Find all PeopleList and return them to the user with res.json
-  app.get("/api/peoplelist", function (req, res) {
-    db.PeopleList.findAll({}).then(function (dbPeople) {
+  // Find all Users and return them to the user with res.json
+  app.get("/api/users", function (req, res) {
+    db.User.findAll({}).then(function (dbPeople) {
       res.json(dbPeople);
     });
   });
 
-  app.get("/api/peoplelist/:id", function (req, res) {
-    // Find one PeopleList with the id in req.params.id and return them to the user with res.json
-    db.PeopleList.findOne({
+  app.get("/api/users/:id", function (req, res) {
+    // Find one User with the id in req.params.id and return them to the user with res.json
+    db.User.findOne({
       where: {
         id: req.params.id
       }
@@ -33,17 +33,17 @@ module.exports = function (app) {
     });
   });
 
-  app.post("/api/peoplelist", function (req, res) {
-    // Create a PeopleList with the data available to us in req.body
-    console.log(req.body);
-    db.PeopleList.create(req.body).then(function (dbPeople) {
+  app.post("/api/users", function (req, res) {
+    // Create a User with the data available to us in req.body
+    // console.log("hi");
+    db.User.create(req.body).then(function (dbPeople) {
       res.json(dbPeople);
     });
   });
 
-  app.delete("/api/peoplelist/:id", function (req, res) {
-    // Delete the PeopleList with the id available to us in req.params.id
-    db.PeopleList.destroy({
+  app.delete("/api/users/:id", function (req, res) {
+    // Delete the User with the id available to us in req.params.id
+    db.User.destroy({
       where: {
         id: req.params.id
       }
@@ -59,7 +59,6 @@ module.exports = function (app) {
   //Description: 
   // Find all VanList and return them to the user with res.json
   app.get("/api/vanlists", function (req, res) {
-    console.log('hello');
     db.VanList.findAll({}).then(function (dbVanList) {
       res.json(dbVanList);
     });

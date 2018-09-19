@@ -4,7 +4,7 @@ $(function() {
     $("#user-submit-btn").on("click", function(event) {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
-        
+
         //grab new user info from form
         var newUser = {
             input_email: $("#input_email").val().trim(),
@@ -14,7 +14,7 @@ $(function() {
             //input_companyName: $("#input_companyName").val().trim(),
             input_homeAddress: $("#input_homeAddress").val().trim(),
             input_phoneNumber: $("#input_phoneNumber").val().trim(),
-            input_prefPickup: $("#input_prePickup").val().trim(),
+            input_prefPickup: $("#sel1").val().trim(),
             input_admin: $("#input_admin").val().trim()
         }; 
     

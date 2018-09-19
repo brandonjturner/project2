@@ -27,7 +27,7 @@ module.exports = function(app) {
         if (adminCheck == adminCode) { isUserAdmin = true; }
         
         db.User.create({
-            email: req.body.email,
+            email: req.body.input_email,
             password: req.body.input_password,
             first_name: req.body.input_firstName,
             last_name: req.body.input_lastName,

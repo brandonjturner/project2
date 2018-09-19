@@ -51,6 +51,7 @@ console.log('hi');
 passport.use(new LocalStrategy(
     // console.log()
     function (username, password, done) {
+        
         console.log(username, password);
         db.User.findOne({
             username: username
@@ -86,8 +87,6 @@ app.get('/', function(req, res) {
 app.get('/login', function(req, res) {
     res.render('login');
 });
-
-
 
 app.use(require('./routes/auth.js')(passport));
 // app.use(require('./routes/htmlRoutes.js'));

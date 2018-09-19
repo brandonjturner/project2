@@ -1,81 +1,104 @@
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="/js/createUser.js"></script>
 <div class="container bootstrap snippet">
     <div class="row">
-  		<div class="col-sm-10"><h1>Create/Edit Profile</h1></div>
+        <div class="col-sm-10">
+            <h1>Create/Edit Profile</h1>
+        </div>
     </div>
     <div class="row">
-          <div class="tab-content">
+        <div class="tab-content">
             <div class="tab-pane active" id="home">
                 <hr>
-                  <form class="form" action="POST" method="post" id="registrationForm">
-                      <div class="form-group">
-                          <div class="col-xs-6">
-                              <label for="input_firstname"><h4>First name</h4></label>
-                              <input type="text" class="form-control" name="input_firstname" id="input_firstname" placeholder="first name" title="enter your first name if any.">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          <div class="col-xs-6">
-                            <label for="input_lastname"><h4>Last name</h4></label>
-                              <input type="text" class="form-control" name="input_lastname" id="input_lastname" placeholder="last name" title="enter your last name if any.">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          <div class="col-xs-6">
-                              <label for="input_phoneNumber"><h4>Phone</h4></label>
-                              <input type="text" class="form-control" name="input_phoneNumber" id="input_phoneNumber" placeholder="enter phone" title="enter your phone number if any.">
-                          </div>
-                      </div>
-                          <div class="form-group">
+                <form class="form" action="POST" method="post" id="registrationForm">
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="input_firstname">
+                                <h4>First name</h4>
+                            </label>
+                            <input type="text" class="form-control" name="input_firstname" id="input_firstname"
+                                placeholder="first name" title="enter your first name if any.">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="input_lastname">
+                                <h4>Last name</h4>
+                            </label>
+                            <input type="text" class="form-control" name="input_lastname" id="input_lastname"
+                                placeholder="last name" title="enter your last name if any.">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="input_phoneNumber">
+                                <h4>Phone</h4>
+                            </label>
+                            <input type="text" class="form-control" name="input_phoneNumber" id="input_phoneNumber"
+                                placeholder="enter phone" title="enter your phone number if any.">
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <div class="form-group">
-                          <div class="col-xs-6">
-                              <label for="input_email"><h4>Email</h4></label>
-                              <input type="email" class="form-control" name="input_email" id="input_email" placeholder="you@email.com" title="enter your email.">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          <div class="col-xs-6">
-                              <label for="input_homeAddress"><h4>Home Address</h4></label>
-                              <input type="email" class="form-control" id="input_homeAddress" placeholder="home address" title="enter home address">
-                          </div>
-                      </div>
-                      <br>
-                                            <div class="form-group">
-                          <div class="col-xs-6">
-                              <div class="form-group">
-  <label for="sel1">Pickup Location:</label>
-  <select class="form-control" id="sel1">
-    <option>Thousand Oaks</option>
-    <option>Simi Valley</option>
-    <option>Agoura</option>
-    <option>Camarillo</option>
-  </select>
-</div> 
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          <div class="col-xs-6">
-                              <label for="input_password"><h4>Password</h4></label>
-                              <input type="password" class="form-control" name="input_password" id="input_password" placeholder="password" title="enter your password.">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          <div class="col-xs-6">
-                            <label for="input_admin"><h4>Admin Password</h4></label>
-                              <input type="password" class="form-control" name="input_admin" id="input_admin" placeholder="admin password" title="enter your admin password.">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                           <div class="col-xs-12">
-                                <br>
-                              	<button class="btn btn-lg btn-success" id="user-submit-btn" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                            <div class="col-xs-6">
+                                <label for="input_email">
+                                    <h4>Email</h4>
+                                </label>
+                                <input type="email" class="form-control" name="input_email" id="input_email"
+                                    placeholder="you@email.com" title="enter your email.">
                             </div>
-                      </div>
-              	</form>
-              <hr>
-             </div>              
-              </div>
-          </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="input_homeAddress">
+                                    <h4>Home Address</h4>
+                                </label>
+                                <input type="email" class="form-control" id="input_homeAddress" placeholder="home address"
+                                    title="enter home address">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label for="sel1">
+                                        <h4>Pickup Location:</h4>
+                                    </label>
+                                    <select class="form-control" id="sel1">
+                                        <option>Thousand Oaks</option>
+                                        <option>Simi Valley</option>
+                                        <option>Agoura</option>
+                                        <option>Camarillo</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="input_password">
+                                    <h4>Password</h4>
+                                </label>
+                                <input type="password" class="form-control" name="input_password" id="input_password"
+                                    placeholder="password" title="enter your password.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="input_admin">
+                                    <h4>Admin Password</h4>
+                                </label>
+                                <input type="password" class="form-control" name="input_admin" id="input_admin"
+                                    placeholder="admin password" title="enter your admin password.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-lg btn-success" id="user-submit-btn" type="submit"><i class="glyphicon glyphicon-ok-sign"></i>
+                                    Save</button>
+                            </div>
+                        </div>
+                </form>
+                <hr>
+            </div>
         </div>
-
+    </div>
+</div>

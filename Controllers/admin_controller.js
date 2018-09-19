@@ -29,6 +29,8 @@ module.exports = function(app) {
     // creates a group with a vanGroup_ID matching the admin that created it
     app.post("/admin/group/create", function (req, res) {
         db.VanGroup.create({
+            vanGroup_ID: req.body.input_vanGroup_ID,
+            vanGroup_admin_ID: req.body.input_vanGroup_admin_ID,
             passenger_ID: req.body.input_user_ID,
             pickup_point: req.body.input_pickup_point
         }).then(function(data) {

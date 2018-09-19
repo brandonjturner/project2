@@ -10,27 +10,27 @@
                     <tbody>
                         <tr>
                             <td>First Name:</td>
-                            <td>{{ user.first_name }}</td>
+                            <td>{{ admin.first_name }}</td>
                         </tr>
                         <tr>
                             <td>Last Name:</td>
-                            <td>{{ user.last_name }}</td>
+                            <td>{{ admin.last_name }}</td>
                         </tr>
                         <tr>
                             <td>Phone #:</td>
-                            <td>{{ user.phone_number }}</td>
+                            <td>{{ admin.phone_number }}</td>
                         </tr>
                         <tr>
                             <td>Email:</td>
-                            <td>{{ user.email }}</td>
+                            <td>{{ admin.email }}</td>
                         </tr>
                         <tr>
                             <td>Home Address:</td>
-                            <td>{{ user.home_address }}</td>
+                            <td>{{ admin.home_address }}</td>
                         </tr>
                         <tr>
                             <td>Preferred Pickup:</td>
-                            <td>{{ user.pref_pickup }}</td>
+                            <td>{{ admin.pref_pickup }}</td>
                         </tr>
                         <tr>
                             <td>Destination:</td>
@@ -38,18 +38,18 @@
                         </tr>
                         <tr>
                             <td>User Admin:</td>
-                            <td>{{ user.admin }}</td>
+                            <td>{{ admin.admin }}</td>
                         </tr>
                         <tr>
                             <td>Admin of Van Groups:</td>
-                            {{#if user.VanGroups}}
-                            {{#each}}
-                            <td>{{pickup_point}} - Van{{ vanGroup_ID }}</td>
-                            <td><a href="">Edit</a>|<a href="">Delete</a></td>
+                            {{#if admin.VanGroups}}
+                            {{#each admin.VanGroups}}
+                            <td>{{ pickup_point }} - Van #{{ vanGroup_ID }}</td>
+                            <td><a href="">Edit</a> | <a href="">Delete</a></td>
                             {{/each}}
                             {{else}}
                             <td>
-                                You are not a member of any groups.
+                                You are not an admin of any groups.
                             </td>
                             {{/if}}
                         </tr>

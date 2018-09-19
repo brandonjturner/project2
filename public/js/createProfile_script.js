@@ -41,7 +41,7 @@ $(document).ready(function () {
                             console.log(result);
                             if (result[0] != null) {
                                 var userID = result[0].id;
-                                sessionStorage.setItem('current-User-ID', userID);
+                                sessionStorage.setItem('current-user-ID', userID);
                                 window.location.href = ("/profile/" + userID);
                             }
                         }

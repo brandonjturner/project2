@@ -1,3 +1,4 @@
+//VanTripGroup Table which is a record of the people that rode in carpool instances
 module.exports = function(sequelize, DataTypes) {
   var VanTripGroup = sequelize.define("VanTripGroup", {
     vanTripGroup_ID: {

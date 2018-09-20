@@ -1,3 +1,4 @@
+//user table
 module.exports = function(sequelize, Sequelize) {
  
     var User = sequelize.define('User', {

@@ -1,3 +1,4 @@
+//Van table which is the class for a car pool trip
 module.exports = function(sequelize, DataTypes) {
   var Van = sequelize.define("Van", {
     origin: {

@@ -1,3 +1,4 @@
+//VanList which a list of all the vehicles
 module.exports = function(sequelize, DataTypes) {
     var VanList = sequelize.define("VanList", {
       make: {

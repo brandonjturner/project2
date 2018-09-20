@@ -9,6 +9,7 @@ module.exports = function(app) {
         });
     });
 
+    //gets a specific trip with links to its group
     app.get("trip/:id", function (req, res) {
         db.VanTrip.findAll({
             where: {

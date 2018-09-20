@@ -2,6 +2,7 @@ var passport = require("passport");
 var LocalStrategy = require('passport-local').Strategy;
 var db = require("../models");
 
+//passport login
 module.exports = function (app) {
     passport.use(new LocalStrategy(
         function (username, password, done) {
@@ -22,6 +23,7 @@ module.exports = function (app) {
         }
     ));
 
+    //if login failure
     app.post('/login',
         passport.authenticate('local', {
             failureRedirect: '/login'

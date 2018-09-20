@@ -1,3 +1,4 @@
+//VanGroup Table which ties people to Vans aka. Carpool Classes
 module.exports = function(sequelize, DataTypes) {
     var VanGroup = sequelize.define("VanGroup", {
       vanGroup_ID: {

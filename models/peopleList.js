@@ -1,3 +1,4 @@
+//people list table which is replaced by the user table
 module.exports = function(sequelize, DataTypes) {
     var PeopleList = sequelize.define("PeopleList", {
       name: {

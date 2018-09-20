@@ -11,6 +11,7 @@ module.exports = function(app) {
     res.render("create");
   });
 
+  //load create profile page
   app.get("/create-profile", function(req, res) {
     res.render("profileCreation");
   });

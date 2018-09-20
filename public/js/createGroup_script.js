@@ -16,7 +16,7 @@ $(document).ready(function() {
             data: vanGroup
         })
         .then(function () {
-            res.status(200);
+            location.reload();
         });
 
 

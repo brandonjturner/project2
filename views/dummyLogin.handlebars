@@ -17,25 +17,13 @@
                 input_email: $('.email').val().trim(),
                 input_password: $('.password').val().trim()
             }
-
-            $.ajax({
-                url: "/profile/email=" + newUser.input_email,
-                async: false,
-                success: function (result) {
-                    console.log(result);
-                    if (result[0] != null) {
-                        var userID = result[0].id;
-                        sessionStorage.setItem('current-user-ID', userID);
-                        window.location.href = ("/profile/" + userID);
-                    }
-                }
-            });
-
             $.ajax("/dummyLogin", {
                 type: "POST",
                 data: bodyData,
                 success: function (data) {
-                    console.log(data);
+                    window.sessionStorage.setItem('current-user-ID', data.id);
+                    window.location.href = "/profile/" + data.id;
+                    
                 }
             });
         });

@@ -2,7 +2,7 @@ $(document).ready(function() {
     
     $('#create-vanGroup-btn').on("click", function (e) {
         e.preventDefault();
-        var randomNumber = Math.floor((Math.random() * 100) + 1);
+        var randomNumber = Math.floor((Math.random() * 100) + 1) * Math.floor((Math.random() * 50) + 1);
         console.log(randomNumber);
         var vanGroup = {
             input_vanGroup_ID: randomNumber,

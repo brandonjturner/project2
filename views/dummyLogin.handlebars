@@ -1,0 +1,44 @@
+<div class="container">
+    <label for="">Email</label>
+    <input class="email" type="text" title="Email">
+    <label for="">Password</label>
+    <input class="password" type="text" title="Password">
+    <button class="login-btn">Login</button>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        $('.login-btn').on("click", function (e) {
+            e.preventDefault();
+            console.log($('.email').val());
+            console.log($('.password').val());
+            var bodyData = {
+                input_email: $('.email').val().trim(),
+                input_password: $('.password').val().trim()
+            }
+
+            $.ajax({
+                url: "/profile/email=" + newUser.input_email,
+                async: false,
+                success: function (result) {
+                    console.log(result);
+                    if (result[0] != null) {
+                        var userID = result[0].id;
+                        sessionStorage.setItem('current-user-ID', userID);
+                        window.location.href = ("/profile/" + userID);
+                    }
+                }
+            });
+
+            $.ajax("/dummyLogin", {
+                type: "POST",
+                data: bodyData,
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        });
+    });
+
+</script>

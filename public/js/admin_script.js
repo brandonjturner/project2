@@ -26,13 +26,7 @@ $(document).ready(function () {
         );
     });
 
-    $('.create-trip').on("click", function (e) {
-        e.preventDefault();
-        var id = $(this).attr('val');
-        $.ajax({
-            url: "/trip/trip-creation/" + id,
-        });
-    });
+    
 
     //on click action to submit put for a group 
     $("#update-group-submit-btn").on("click", function (event) {

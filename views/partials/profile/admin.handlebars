@@ -42,7 +42,6 @@
                         </tr>
                         <tr>
                             <td>Admin of Van Groups:</td>
-                            {{log admin}}
                             {{#if admin.VanGroups}}
                             {{#each admin.VanGroups}}
                             <td data-vanGroupID="{{ vanGroup_ID }}">{{ pickup_point }} - Van #{{ vanGroup_ID }}</td>
@@ -67,6 +66,25 @@
                             </td>
                             <td><button id="create-vanGroup-btn">Create</button></td>
                         </tr>
+                        <tr>
+                            <td>Current Trips:</td>
+                        </tr>
+
+                        {{#if admin.VanTripGroups}}
+                        {{#each admin.VanTripGroups}}
+                        <tr>
+                            {{#if VanTrip}}
+                            <td>Van #{{ VanTrip.dataValues.vanGroup_ID }}:</td>
+                            <td> {{formatDate VanTrip.dataValues.begin_time "long"}}</td>
+                            {{else}}
+                            {{/if}}
+                        </tr>
+                        {{/each}}
+                        {{else}}
+                        <td>
+                            You are not a member of any groups.
+                        </td>
+                        {{/if}}
                     </tbody>
                 </table>
             </div>

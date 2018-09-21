@@ -55,23 +55,23 @@
                         <tr>
                             <td>Current Trips:</td>
                         </tr>
-                        
-                            {{#if user.VanTripGroups}}
-                            {{#each user.VanTripGroups}}
-                            <tr>
-                                {{#if VanTrip}}
-                                <td>Van #{{ VanTrip.dataValues.vanGroup_ID }}:</td>
-                                <td> {{formatDate VanTrip.dataValues.begin_time "long"}}</td>
-                                {{else}}
-                                {{/if}}
-                            </tr>
-                            {{/each}}
+
+                        {{#if user.VanTripGroups}}
+                        {{#each user.VanTripGroups}}
+                        <tr>
+                            {{#if VanTrip}}
+                            <td>Van #{{ VanTrip.dataValues.vanGroup_ID }}:</td>
+                            <td> {{formatDate VanTrip.dataValues.begin_time "long"}}</td>
                             {{else}}
-                            <td>
-                                You are not a member of any groups.
-                            </td>
                             {{/if}}
-                        
+                        </tr>
+                        {{/each}}
+                        {{else}}
+                        <td>
+                            You are not a member of any groups.
+                        </td>
+                        {{/if}}
+
                     </tbody>
                 </table>
             </div>

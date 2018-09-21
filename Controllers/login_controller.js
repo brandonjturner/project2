@@ -23,14 +23,14 @@ module.exports = function (app) {
         }
     ));
 
-    //if login failure
-    app.post('/login',
-        passport.authenticate('local', {
-            failureRedirect: '/login'
-        }),
-        function (req, res) {
-            res.redirect('/');
-        });
+    // //if login failure
+    // app.post('/login',
+    //     passport.authenticate('local', {
+    //         failureRedirect: '/login'
+    //     }),
+    //     function (req, res) {
+    //         res.redirect('/');
+    //     });
 
     //code to make dummy login work for current testing
     app.post('/login', function (req, res) {

@@ -14,7 +14,7 @@ app.get('/profile/:id',isLoggedIn, authController.dashboard);
 
 app.get('/signin',authController.logout);
 
-app.post('/signin', passport.authenticate('local-signin',  { successRedirect: '/profile/:id',
+app.post('/signin', passport.authenticate('local',  { successRedirect: '/profile/:id',
                                                     failureRedirect: '/signin'}
                                                     ));
 

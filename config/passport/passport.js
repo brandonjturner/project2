@@ -6,6 +6,8 @@
  var User = user;
  var LocalStrategy = require('passport-local').Strategy;
 
+ console.log(new LocalStrategy)
+
  passport.serializeUser(function(user, done) {
          done(null, user.id);
      });

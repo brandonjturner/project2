@@ -17,7 +17,7 @@
                 input_email: $('.email').val().trim(),
                 input_password: $('.password').val().trim()
             }
-            $.ajax("/signin", {
+            $.ajax("/login", {
                 type: "POST",
                 data: bodyData,
                 success: function (data) {

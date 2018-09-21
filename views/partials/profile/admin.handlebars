@@ -45,7 +45,7 @@
                             {{#if admin.VanGroups}}
                             {{#each admin.VanGroups}}
                             <td data-vanGroupID="{{ vanGroup_ID }}">{{ pickup_point }} - Van #{{ vanGroup_ID }}</td>
-                            <td><a href="">Edit</a> | <a href="">Delete</a></td>
+                            <td><a href="/trip/create/{{vanGroup_ID}}" class="create-trip" val="{{ vanGroup_ID }}">Create a new Trip</a> | <a href="">Edit</a> | <a href="">Delete</a></td>
                             {{/each}}
                             {{else}}
                             <td>

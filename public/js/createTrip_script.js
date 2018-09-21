@@ -7,7 +7,7 @@ $(document).ready(function () {
             input_driver_ID: $(".input_driver").attr('val').trim()
         }
 
-        $.ajax("/trip/create", {
+        $.ajax("/trip/create/", {
             type: "POST", 
             data: data,
             success: function (data) {
@@ -18,6 +18,8 @@ $(document).ready(function () {
                 $('.passenger-checkbox:checked').each(function (e) {
                     passengers.push($(this).attr('val'));
                 });
+
+                
 
                 passengers.forEach(function (e) {
                     
@@ -33,8 +35,9 @@ $(document).ready(function () {
                     });
                 });
 
-                window.location.href = "/profile/" + window.sessionStorage.getItem("current-user-ID");
-                
+                window.location.href = "/profile/" + window.sessionStorage.getItem('current-user-ID');
+
+            
             }
         });
     });

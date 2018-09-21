@@ -3,6 +3,7 @@ $(document).ready(function () {
         e.preventDefault();
 
         var data = {
+            input_vanGroup_ID: window.sessionStorage.getItem('current-group-ID'),
             input_begin_time: $("#input_date").val().trim() + ' ' + $("#input_begin_time").val().trim(),
             input_driver_ID: $(".input_driver").attr('val').trim()
         }
@@ -11,6 +12,7 @@ $(document).ready(function () {
             type: "POST", 
             data: data,
             success: function (data) {
+                window.sessionStorage.removeItem('current-group-ID');
                 var tripID = data.id;
 
                 var passengers = [];
@@ -34,6 +36,7 @@ $(document).ready(function () {
                         sync: true
                     });
                 });
+
 
                 window.location.href = "/profile/" + window.sessionStorage.getItem('current-user-ID');
 

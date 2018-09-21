@@ -1,10 +1,9 @@
 //VanTrip Table which is a record of carpool trip instances
 module.exports = function(sequelize, DataTypes) {
   var VanTrip = sequelize.define("VanTrip", {
-    van_ID: {
+    vanGroup_ID: {
       type: DataTypes.INTEGER,
-      //TODO: change when vans are created
-      allowNull: true
+      allowNull: false
     },
     driver_ID: {
       type: DataTypes.INTEGER,

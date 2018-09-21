@@ -21,4 +21,10 @@ $(document).ready(function() {
 
 
     });
+
+    $('.create-trip').on("click", function (e) {
+        
+        var id = $(this).attr('val');
+        window.sessionStorage.setItem('current-group-ID', id);
+    });
 });

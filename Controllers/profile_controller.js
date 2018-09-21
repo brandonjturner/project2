@@ -25,24 +25,38 @@ module.exports = function (app) {
                     id: req.params.id
                 },
                 include: [{
-                    model: db.VanGroup
-                }]
+                        model: db.VanGroup
+                    },
+                    {
+                        model: db.VanTripGroup,
+                        include: [{
+                            model: db.VanTrip,
+                        }]
+                    }
+                ]
             })
             .then(function (data) {
-                var isAdmin = data[0].admin;
-                var handlebarsObj = {
-                    user: data[0],
-                    admin: data[0]
-                };
-
-                if (isAdmin === true) {
-                    handlebarsObj.user = false;
-                } else {
-                    handlebarsObj.admin = false;
+                
+                if (data === undefined || data === []) {
+                    res.render("dummyLogin");
                 }
-                //console.log(handlebarsObj.user);
-                //res.json(data);
-                res.render("index", handlebarsObj);
+                else {
+                    
+                    var isAdmin = data[0].admin;
+                    var handlebarsObj = {
+                        user: data[0],
+                        admin: data[0]
+                    };
+
+                    if (isAdmin === true) {
+                        handlebarsObj.user = false;
+                    } else {
+                        handlebarsObj.admin = false;
+                    }
+                    //console.log(handlebarsObj.user);
+                    //res.json(data);
+                    res.render("index", handlebarsObj);
+                }
             });
     });
 
@@ -75,11 +89,10 @@ module.exports = function (app) {
                 //console.log(adminCheck);
                 if (data[1]) {
                     console.log('User already exists');
-                }
-                else {
+                } else {
                     console.log('Created User');
                 }
-                
+
                 if (data === null) {
                     res.status(404).end();
                 }

@@ -49,7 +49,6 @@ module.exports = function(app) {
 
     //updates a specific group
     app.put("/admin/group/update", function (req, res) {
-        
         db.VanGroup.update(
             req.body, 
             {

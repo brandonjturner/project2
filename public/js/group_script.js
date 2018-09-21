@@ -20,8 +20,8 @@ $(document).ready(function () {
             type: "POST",
             data: userData
         })
-        .then({
-
+        .then(function (){
+            window.location.href = "/group/" + userData.input_vanGroup_ID;
         });
     });
 });

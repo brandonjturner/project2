@@ -9,34 +9,38 @@ module.exports = function (app) {
                 plain: false,
             }
         ).then(function (data) {
-            var dataArray = [];
-            var idArray = [];
-            data.forEach(function (e) {
-                idArray.push(e.vanGroup_ID);
-            });
-
-            data.forEach(function (e, index) {
-                db.VanGroup.find({
-                    where: {
-                        vanGroup_ID: e.DISTINCT
-                    }
-                }).then(function (data) {
-                    //console.log(data);
-                    var vanGroup = {};
-                    vanGroup.vanGroup_ID = data.dataValues.vanGroup_ID;
-                    vanGroup.pickup_point = data.dataValues.pickup_point;
-                    //console.log(vanGroup);
-                    dataArray.push(vanGroup);
-                    if (index === idArray.length - 1) {
-                        var handlebarsObj = {
-                            vanGroup: dataArray
-                        }
-                        //res.json(handlebarsObj);
-                        res.render("groups", handlebarsObj);
-                    }
+            if (data.length != 0) {
+                var dataArray = [];
+                var idArray = [];
+                data.forEach(function (e) {
+                    idArray.push(e.vanGroup_ID);
                 });
-            });
 
+                data.forEach(function (e, index) {
+                    db.VanGroup.find({
+                        where: {
+                            vanGroup_ID: e.DISTINCT
+                        }
+                    }).then(function (data) {
+                        //console.log(data);
+                        var vanGroup = {};
+                        vanGroup.vanGroup_ID = data.dataValues.vanGroup_ID;
+                        vanGroup.pickup_point = data.dataValues.pickup_point;
+                        //console.log(vanGroup);
+                        dataArray.push(vanGroup);
+                        if (index === idArray.length - 1) {
+                            var handlebarsObj = {
+                                vanGroup: dataArray
+                            }
+                            //res.json(handlebarsObj);
+                            res.render("groups", handlebarsObj);
+                        }
+                    });
+                });
+            }
+            else {
+                res.render("groups");
+            }
             // console.log(dataArray);
             // res.json(dataArray);
             // //res.render("groups", data);
@@ -45,31 +49,33 @@ module.exports = function (app) {
 
     app.get("/group/:id", function (req, res) {
         db.VanGroup.findAll({
-            where: {
-                vanGroup_ID: req.params.id, 
-            },
-            include: [{ model: db.User }]
-        })
-        .then(function (data) {
-            var userData = [];
-            var admin;
-            
-            data.forEach(function (e) {
-                userData.push(e.User);
-                if (e.User.admin) {
-                    admin = e.User;
-                }
-            });
-            console.log(data);
+                where: {
+                    vanGroup_ID: req.params.id,
+                },
+                include: [{
+                    model: db.User
+                }]
+            })
+            .then(function (data) {
+                var userData = [];
+                var admin;
 
-            var handlebarsObj = {
-                groupData: data[0],
-                userData: userData,
-                admin: admin
-            };
-            //res.json(handlebarsObj);
-            res.render("groupInfo", handlebarsObj);
-        })
+                data.forEach(function (e) {
+                    userData.push(e.User);
+                    if (e.User.admin) {
+                        admin = e.User;
+                    }
+                });
+                console.log(data);
+
+                var handlebarsObj = {
+                    groupData: data[0],
+                    userData: userData,
+                    admin: admin
+                };
+                //res.json(handlebarsObj);
+                res.render("groupInfo", handlebarsObj);
+            })
     })
 
     // Joins a group
@@ -83,16 +89,15 @@ module.exports = function (app) {
         }).then(function (data) {
             if (data[0]) {
                 console.log('Already a member of Van Group');
-            }
-            else {
+            } else {
                 console.log('Joined Van Group.');
             }
-            
+
             if (data === null) {
                 res.status(404).end();
             }
             res.status(200).end();
-        
+
         });
     });
 }

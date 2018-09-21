@@ -24,16 +24,16 @@ module.exports = function (app) {
     ));
 
     //if login failure
-    app.post('/login',
-        passport.authenticate('local', {
-            failureRedirect: '/login'
-        }),
-        function (req, res) {
-            res.redirect('/');
-        });
+    // app.post('/login',
+    //     passport.authenticate('local', {
+    //         failureRedirect: '/login'
+    //     }),
+    //     function (req, res) {
+    //         res.redirect('/');
+    //     });
 
     //code to make dummy login work for current testing
-    app.post('/dummyLogin', function (req, res) {
+    app.post('/login', function (req, res) {
         console.log(req.body.input_email);
         console.log(req.body.input_password);
         db.User.findOrCreate({

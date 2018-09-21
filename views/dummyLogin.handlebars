@@ -17,13 +17,13 @@
                 input_email: $('.email').val().trim(),
                 input_password: $('.password').val().trim()
             }
-            $.ajax("/dummyLogin", {
+            $.ajax("/login", {
                 type: "POST",
                 data: bodyData,
+                async: false,
                 success: function (data) {
                     window.sessionStorage.setItem('current-user-ID', data.id);
                     window.location.href = "/profile/" + data.id;
-                    
                 }
             });
         });

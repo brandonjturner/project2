@@ -22,9 +22,16 @@
                 data: bodyData,
                 async: false,
                 success: function (data) {
+<<<<<<< HEAD
                     console.log(data);
                     window.sessionStorage.setItem('current-user-ID', data.id);
                     window.location.href = "/profile/" + data.id;
+=======
+                    if (data != null) {
+                        window.sessionStorage.setItem('current-user-ID', data.id);
+                        window.location.href = "/profile/" + data.id;
+                    }
+>>>>>>> 4d77d546254889d52b771f6d7ae5f5cfe8944cd7
                 }
             });
         });

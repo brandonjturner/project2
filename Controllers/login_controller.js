@@ -36,16 +36,17 @@ module.exports = function (app) {
     app.post('/login', function (req, res) {
         console.log(req.body.input_email);
         console.log(req.body.input_password);
-        db.User.findOrCreate({
+        db.User.findOne({
             where: {
                 email: req.body.input_email,
                 password: req.body.input_password
             }
         })
         .then(function (data) {
-            if (!data[1]) {
-                res.json(data[0]);
-            }
+            res.json(data);
+            // if (!data[1]) {
+            //     res.json(data[0]);
+            // }
         });
     });
 }

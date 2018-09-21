@@ -1,4 +1,5 @@
 var db = require("../models");
+var Sequelize = require("sequelize");
 
 module.exports = function (app) {
     //displays groups
@@ -41,6 +42,35 @@ module.exports = function (app) {
             // //res.render("groups", data);
         });
     });
+
+    app.get("/group/:id", function (req, res) {
+        db.VanGroup.findAll({
+            where: {
+                vanGroup_ID: req.params.id, 
+            },
+            include: [{ model: db.User }]
+        })
+        .then(function (data) {
+            var userData = [];
+            var admin;
+            
+            data.forEach(function (e) {
+                userData.push(e.User);
+                if (e.User.admin) {
+                    admin = e.User;
+                }
+            });
+            console.log(data);
+
+            var handlebarsObj = {
+                groupData: data[0],
+                userData: userData,
+                admin: admin
+            };
+            //res.json(handlebarsObj);
+            res.render("groupInfo", handlebarsObj);
+        })
+    })
 
     // Joins a group
     app.post("/group/join", function (req, res) {

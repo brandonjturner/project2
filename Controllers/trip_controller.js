@@ -49,6 +49,7 @@ module.exports = function(app) {
     //creates a new van trip
     app.post("/trip/create", function (req, res) {
         db.VanTrip.create({
+            vanGroup_ID: req.body.input_vanGroup_ID,
             date: req.body.input_date,
             driver_ID: req.body.input_driver_ID,
             begin_time: req.body.input_begin_time,

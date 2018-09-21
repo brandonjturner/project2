@@ -1,0 +1,60 @@
+<script src="/js/group_script.js"></script>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 toppad pull-right col-md-offset-3 ">
+            <br>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Group Information</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class=" col-md-9 col-lg-9">
+                            <table class="table table-user-information">
+                                <tbody>
+                                    <tr>
+                                        <td>Van Number:</td>
+                                        <td>Van #{{ groupData.vanGroup_ID }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pickup Point:</td>
+                                        <td>{{ groupData.pickup_point }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Destination:</td>
+                                        <td>Large Company 1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Van Admin Phone #:</td>
+                                        <td>{{ admin.phone_number }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Van Admin Email:</td>
+                                        <td>{{ admin.email }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Current Group Members</td>
+                                        {{#if userData}}
+                                        {{#each userData}}
+                                            <td>{{first_name}} {{last_name}}</td>
+                                        {{/each}}
+                                        {{else}}
+                                        <td>No current Members.</td>    
+                                        {{/if}}
+                                    </tr>
+                                    <tr>
+                                        <td><button class="btn btn-success join-group-btn" data-groupID="{{ groupData.vanGroup_ID }}" data-pickupPoint="{{ groupData.pickup_point }}">Join Group</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

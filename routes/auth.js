@@ -2,11 +2,11 @@ var authController = require('../controllers/authcontroller.js');
 
 module.exports = function(app,passport){
 
-app.get('/create-profile', authController.create-profile);
+app.get('/createprofile', authController.signup);
 
 app.get('/signin', authController.signin);
 
-app.post('/create-profile', passport.authenticate('local-signup',  { successRedirect: '/profile/:id',
+app.post('/createprofile', passport.authenticate('local-signup',  { successRedirect: '/loginredirect',
                                                     failureRedirect: '/create-profile'}
                                                     ));
 

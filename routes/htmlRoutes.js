@@ -13,7 +13,7 @@ module.exports = function(app) {
   });
 
   //load create profile page
-  app.get("/create-profile", function(req, res) {
+  app.get("/createprofile", function(req, res) {
     res.render("profileCreation");
   });
 

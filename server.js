@@ -32,6 +32,7 @@ require("./Controllers/tripGroup_controller")(app);
 require("./Controllers/admin_controller")(app);
 require("./Controllers/group_controller")(app);
 require("./routes/htmlRoutes")(app);
+require("./routes/auth")(app);
 
 var syncOptions = { force: false };
 

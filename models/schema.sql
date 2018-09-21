@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS vanpool;
 CREATE DATABASE vanpool;
 use vanpool;
 

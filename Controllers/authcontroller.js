@@ -1,7 +1,7 @@
 var exports = module.exports = {}
 
 exports.signup = function(req,res){
-	res.render('signup'); 
+	res.render('profileCreation'); 
 }
 
 exports.signin = function(req,res){
@@ -9,10 +9,10 @@ exports.signin = function(req,res){
 }
 
 exports.dashboard = function(req,res){
-	res.render('dashboard'); 
+	res.render('loginredirect'); 
 }
 exports.logout = function(req,res){
   req.session.destroy(function(err) {
-  res.redirect('/');
+  res.redirect('/signin');
   });
 }

@@ -46,6 +46,7 @@
      else
      {
        var userPassword = generateHash(password);
+
        var data =
        { email:email,
        password:userPassword,

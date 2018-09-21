@@ -20,11 +20,11 @@
             $.ajax("/login", {
                 type: "POST",
                 data: bodyData,
+                async: false,
                 success: function (data) {
                     console.log(data);
                     window.sessionStorage.setItem('current-user-ID', data.id);
                     window.location.href = "/profile/" + data.id;
-                    
                 }
             });
         });

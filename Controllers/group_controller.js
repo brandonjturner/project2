@@ -1,31 +1,6 @@
 var db = require("../models");
 
 module.exports = function (app) {
-    
-    app.get("/group", function (req, res) {
-        db.VanGroup.findAll({
-            where: {
-                vanGroup_ID: 2058//req.body.input_vanGroup_ID
-            },
-            include: [{model: db.User}]
-        })
-        .then(function (data) {
-            var userData = [];
-
-            data.forEach(function (e) {
-                userData.push(e.User);
-            });
-
-            //console.log(userData);
-
-            var handlebarsObj = {
-                data: data[0],
-                userData: userData
-            }
-            res.render("tripCreation", handlebarsObj);
-        })
-    })
-    
     //displays groups
     app.get("/group/all", function (req, res) {
         db.VanGroup.aggregate(

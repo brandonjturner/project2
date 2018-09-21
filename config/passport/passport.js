@@ -33,7 +33,7 @@
    },
 
    function(req, email, password, done){
-      
+     console.log("test");
      var generateHash = function(password) {
      return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
      };

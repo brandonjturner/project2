@@ -29,7 +29,6 @@ module.exports = function (app) {
                 }]
             })
             .then(function (data) {
-                
                 var isAdmin = data[0].admin;
                 var handlebarsObj = {
                     user: data[0],

@@ -9,6 +9,31 @@ module.exports = function(app) {
         });
     });
 
+    //sends to create a trip page
+    app.get("/trip/create/:id", function (req, res) {
+        db.VanGroup.findAll({
+            where: {
+                vanGroup_ID: req.params.id
+            },
+            include: [{model: db.User}]
+        })
+        .then(function (data) {
+            var userData = [];
+
+            data.forEach(function (e) {
+                userData.push(e.User);
+            });
+
+            //console.log(userData);
+
+            var handlebarsObj = {
+                data: data[0],
+                userData: userData
+            }
+            res.render("tripCreation", handlebarsObj);
+        })
+    });
+
     //gets a specific trip with links to its group
     app.get("trip/:id", function (req, res) {
         db.VanTrip.findAll({

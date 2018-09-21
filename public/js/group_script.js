@@ -4,9 +4,9 @@ $(document).ready(function () {
         console.log($(this).prev().attr("data-groupID"));
 
         var userData = {
-            input_vanGroup_ID: $(this).prev().attr("data-groupID"),
+            input_vanGroup_ID: $(this).attr("data-groupID"),
             input_user_ID: window.sessionStorage.getItem("current-user-ID"),
-            input_pickup_point: $(this).prev().attr("data-pickupPoint")
+            input_pickup_point: $(this).attr("data-pickupPoint")
         }
 
         console.log(userData);

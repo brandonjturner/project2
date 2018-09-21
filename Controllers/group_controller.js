@@ -52,18 +52,23 @@ module.exports = function (app) {
         })
         .then(function (data) {
             var userData = [];
+            var admin;
             
             data.forEach(function (e) {
                 userData.push(e.User);
+                if (e.User.admin) {
+                    admin = e.User;
+                }
             });
             console.log(data);
 
             var handlebarsObj = {
                 groupData: data[0],
-                userData: userData
+                userData: userData,
+                admin: admin
             };
             //res.json(handlebarsObj);
-            res.render("groupInfo", data);
+            res.render("groupInfo", handlebarsObj);
         })
     })
 

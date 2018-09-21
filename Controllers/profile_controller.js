@@ -36,12 +36,11 @@ module.exports = function (app) {
                 ]
             })
             .then(function (data) {
-                
-                if (data === undefined || data === []) {
+                //console.log(data);
+                if (data.length === 0) {
                     res.render("dummyLogin");
                 }
                 else {
-                    
                     var isAdmin = data[0].admin;
                     var handlebarsObj = {
                         user: data[0],

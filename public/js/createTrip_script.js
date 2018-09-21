@@ -1,3 +1,6 @@
+if (!window.sessionStorage.getItem('user-logged-in')) {
+    window.location.href = "/"
+}
 $(document).ready(function () {
     $('#trip-submit-btn').on('click', function (e) {
         e.preventDefault();

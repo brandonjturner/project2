@@ -21,15 +21,14 @@
   {{!-- navbar --}}
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-      <div class="navbar-header">
+      <div class="navbar-header navbar-brand profile-link">
         Vanpool
       </div>
       <ul class="nav navbar-nav">
-
         {{!-- navbar buttons --}}
-        <li><a id="profile-link">Your Profile</a></li>
+        <li><a class="profile-link">Your Profile</a></li>
         <li><a href="/group/all">Groups / Rides</a></li>
-        <li><a href="#">Log Out </a></li>
+        <li><a id="logout" href="/signin">Log Out</a></li>
       </ul>
     </div>
   </nav>
@@ -46,7 +45,11 @@
 
   <script>
     $(document).ready(function () {
-      $('#profile-link').on("click", function (e) {
+      $('#logout').on("click", function (e) {
+        window.sessionStorage.clear();
+      });
+
+      $('.profile-link').on("click", function (e) {
         window.location.href = "/profile/" + window.sessionStorage.getItem("current-user-ID");
       });
     });

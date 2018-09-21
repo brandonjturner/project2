@@ -1,3 +1,6 @@
+if (!window.sessionStorage.getItem('user-logged-in')) {
+    window.location.href = "/"
+}
 $(document).ready(function() {
     
     $('#create-vanGroup-btn').on("click", function (e) {

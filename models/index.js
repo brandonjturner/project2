@@ -8,7 +8,7 @@ var env = process.env.NODE_ENV || "development";
 var config = require(__dirname + "/../config/config.json")[env];
 var db = {};
 
-console.log(config);
+
 
 //connect to database via sequalize
 if (config.use_env_variable) {

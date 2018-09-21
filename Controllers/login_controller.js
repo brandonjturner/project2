@@ -30,5 +30,22 @@ module.exports = function (app) {
         }),
         function (req, res) {
             res.redirect('/');
+        });
+
+    //code to make dummy login work for current testing
+    app.post('/dummyLogin', function (req, res) {
+        console.log(req.body.input_email);
+        console.log(req.body.input_password);
+        db.User.findOrCreate({
+            where: {
+                email: req.body.input_email,
+                password: req.body.input_password
+            }
+        })
+        .then(function (data) {
+            if (!data[1]) {
+                res.json(data[0]);
+            }
+        });
     });
 }

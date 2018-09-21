@@ -11,12 +11,12 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     begin_time: {
-      type: DataTypes.TIME,
-      allowNull: false
+      type: DataTypes.DATE,
+      allowNull: true
     },
     end_time: {
       type: DataTypes.TIME,
-      allowNull: false
+      allowNull: true
     },
     distance_traveled: {
       type: DataTypes.FLOAT,

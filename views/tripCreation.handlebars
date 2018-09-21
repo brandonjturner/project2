@@ -1,0 +1,81 @@
+<script src="/js/createTrip_script.js"></script>
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-sm-10">
+            <h1>Create/Edit Trip</h1>
+            <h4>Route: {{ data.pickup_point }}</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="tab-content">
+            <div class="tab-pane active" id="home">
+                <hr>
+                <form class="form" action="POST" method="post" id="registrationForm">
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="input_lastname">
+                                <h4>Pickup Time</h4>
+                            </label>
+                            <input type="time" class="form-control" name="input_lastname" id="input_begin_time"
+                                placeholder="Start Time" title="Please enter pickup time">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="input_lastname">
+                                <h4>Pickup Date</h4>
+                            </label>
+                            <input type="date" class="form-control" name="input_lastname" id="input_date" placeholder="Date of Trip"
+                                title="Please enter date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="input_driver">
+                                <h4>
+                                    Pick your Driver:
+                                </h4>
+                            </label>
+                            <select class="form-control" id="input_driver">
+                                {{#if userData}}
+                                {{#each userData}}
+                                <option class="input_driver" val="{{id}}">{{first_name}} {{last_name}}</option>
+                                {{/each}}
+                                {{else}}
+                                You are the only member of this group.
+                                {{/if}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <div>
+                                <label for="input_passenger">
+                                    <h4>
+                                        Pick your Passengers:
+                                    </h4>
+                            </div>
+                            {{#if userData}}
+                            {{#each userData}}
+                            <div val="{{id}}">
+                                <input type="checkbox" aria-label="Checkbox for following text input" class="passenger-checkbox"
+                                    val="{{id}}"><label for="passenger-checkbox"> Passenger</label>
+                            </div>
+                            <option class="input_passenger">{{first_name}} {{last_name}}</option>
+                            {{/each}}
+                            {{else}}
+                            You are the only member of this group.
+                            {{/if}}
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <br>
+                        <button class="btn btn-lg btn-success" id="trip-submit-btn" type="submit"><i class="glyphicon glyphicon-ok-sign"></i>Save</button>
+                    </div>
+            </div>
+            </form>
+            <hr>
+        </div>
+    </div>
+</div>
+</div>

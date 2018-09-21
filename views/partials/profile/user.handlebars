@@ -43,8 +43,8 @@
                         <tr>
                             <td>My Groups:</td>
                                 {{#if user.VanGroups}}
-                                    {{#each}}
-                                    <td>{{ vanGroup_ID }}</td>
+                                    {{#each user.VanGroups}}
+                                    <td>Van #{{ vanGroup_ID }} Route: {{ pickup_point }}</td>
                                     {{/each}}
                                 {{else}}
                                     <td>

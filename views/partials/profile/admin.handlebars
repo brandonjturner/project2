@@ -1,14 +1,76 @@
-<h2>Your Vanpool Route</h2>
-<div class="form-group">
-    <div class="col-xs-12">
-        <tr>
-            <td>Pickup:</td>
-            <td>database_pickup</td>
-        </tr>
-        <br>
-        <br>
-        <tr>
-            <td>Destination:</td>
-            <td>database_dropoff</td>
-        </tr>
+<script src="/js/createGroup_script.js"></script>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">Admin Profile Information</h3>
     </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class=" col-md-9 col-lg-9">
+                <table class="table table-user-information">
+                    <tbody>
+                        <tr>
+                            <td>First Name:</td>
+                            <td>{{ admin.first_name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Last Name:</td>
+                            <td>{{ admin.last_name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Phone #:</td>
+                            <td>{{ admin.phone_number }}</td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td>{{ admin.email }}</td>
+                        </tr>
+                        <tr>
+                            <td>Home Address:</td>
+                            <td>{{ admin.home_address }}</td>
+                        </tr>
+                        <tr>
+                            <td>Preferred Pickup:</td>
+                            <td>{{ admin.pref_pickup }}</td>
+                        </tr>
+                        <tr>
+                            <td>Destination:</td>
+                            <td>Large Company 1</td>
+                        </tr>
+                        <tr>
+                            <td>User Admin:</td>
+                            <td>{{ admin.admin }}</td>
+                        </tr>
+                        <tr>
+                            <td>Admin of Van Groups:</td>
+                            {{#if admin.VanGroups}}
+                            {{#each admin.VanGroups}}
+                            <td data-vanGroupID="{{ vanGroup_ID }}">{{ pickup_point }} - Van #{{ vanGroup_ID }}</td>
+                            <td><a href="">Edit</a> | <a href="">Delete</a></td>
+                            {{/each}}
+                            {{else}}
+                            <td>
+                                You are not an admin of any groups.
+                            </td>
+                            {{/if}}
+                        </tr>
+                        <tr>
+                            <td>Create a new Van Group:</td>
+                            <td>
+                                <label for="input_vanRoute">Pickup Location: </label>
+                                <select class="form-control" id="input_vanRoute">
+                                    <option>Thousand Oaks</option>
+                                    <option>Simi Valley</option>
+                                    <option>Agoura</option>
+                                    <option>Camarillo</option>
+                                </select>
+                            </td>
+                            <td><button id="create-vanGroup-btn">Create</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+    </div>
+</div>

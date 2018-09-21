@@ -4,8 +4,12 @@
   <h2>Available Vanpools</h2>
   <h4>Select a group to see info.</h4>
   <div class="list-group">
+    {{#if vanGroup}}
     {{#each vanGroup}}
     {{> groups/listGroup}}
     {{/each}}
+    {{else}}
+    There are no available groups
+    {{/if}}
   </div>
 </div>

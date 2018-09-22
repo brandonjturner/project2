@@ -93,6 +93,12 @@ module.exports = function(sequelize, Sequelize) {
             foreignKey: "passenger_ID"
         });
 
+        //associating user to vantripgroup 
+        User.hasMany(models.VanTripGroup, {
+            onDelete: "cascade",
+            foreignKey: "passenger_ID"
+        });
+
       };
 
     return User;

@@ -32,14 +32,7 @@ module.exports = function(sequelize, DataTypes) {
           {
             foreignKey: 'passenger_ID'
 
-        });
-
-        // TODO: commented out for testing
-        // VanGroup.belongsTo(models.Van, {
-        //     foreignKey: {
-        //         allowNull: false
-        //     }
-        // });
+        });   
     };
   
   

@@ -5,7 +5,12 @@ var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var db = require("./models");
 var app = express();
+<<<<<<< HEAD
 var passport = require("passport");
+=======
+var moment = require("moment");
+// var passport = require("passport");
+>>>>>>> e31e26c18a321bbf72cd2e86e15311bf515a953e
 var PORT = process.env.PORT || 3000;
 
 var session    = require('express-session')
@@ -24,10 +29,26 @@ app.use(bodyParser.json());
 //app.use(express.static("public"));
 app.use(express.static(__dirname+'/public'));
 
+var DateFormats = {
+  short: "DD MMMM - YYYY",
+  long: "MMM Do HH:mm"
+};
+
 // Handlebars
 app.engine(
   "handlebars",
   exphbs({
+    helpers: {
+      formatDate: function (datetime, format) {
+        if (moment) {
+          format = DateFormats[format] || format;
+          return moment(datetime).format(format);
+        }
+        else {
+          return datetime;
+        }
+      }
+    },
     defaultLayout: "main"
   })
 );

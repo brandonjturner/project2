@@ -1,3 +1,6 @@
+if (!window.sessionStorage.getItem('user-logged-in')) {
+    window.location.href = "/"
+}
 $(document).ready(function() {
     
     $('#create-vanGroup-btn').on("click", function (e) {
@@ -20,5 +23,11 @@ $(document).ready(function() {
         });
 
 
+    });
+
+    $('.create-trip').on("click", function (e) {
+        
+        var id = $(this).attr('val');
+        window.sessionStorage.setItem('current-group-ID', id);
     });
 });

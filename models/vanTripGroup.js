@@ -16,6 +16,10 @@ module.exports = function(sequelize, DataTypes) {
     VanTripGroup.belongsTo(models.VanTrip, {
       foreignKey: 'vanTripGroup_ID'
     });
+
+    VanTripGroup.belongsTo(models.User, {
+      foreignKey: 'passenger_ID'
+    });
   };
   return VanTripGroup;
 };

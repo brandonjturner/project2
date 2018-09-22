@@ -42,16 +42,36 @@
                         </tr>
                         <tr>
                             <td>My Groups:</td>
-                                {{#if user.VanGroups}}
-                                    {{#each user.VanGroups}}
-                                    <td>Van #{{ vanGroup_ID }} Route: {{ pickup_point }}</td>
-                                    {{/each}}
-                                {{else}}
-                                    <td>
-                                        You are not a member of any groups.
-                                    </td>
-                                {{/if}}
+                            {{#if user.VanGroups}}
+                            {{#each user.VanGroups}}
+                            <td><a href="/group/{{ vanGroup_ID }}">Van #{{ vanGroup_ID }} Route: {{ pickup_point }}</a></td>
+                            {{/each}}
+                            {{else}}
+                            <td>
+                                You are not a member of any groups.
+                            </td>
+                            {{/if}}
                         </tr>
+                        <tr>
+                            <td>Current Trips:</td>
+                        </tr>
+
+                        {{#if user.VanTripGroups}}
+                        {{#each user.VanTripGroups}}
+                        <tr>
+                            {{#if VanTrip}}
+                            <td>Van #{{ VanTrip.dataValues.vanGroup_ID }}:</td>
+                            <td> {{formatDate VanTrip.dataValues.begin_time "long"}}</td>
+                            {{else}}
+                            {{/if}}
+                        </tr>
+                        {{/each}}
+                        {{else}}
+                        <td>
+                            You are not a member of any groups.
+                        </td>
+                        {{/if}}
+
                     </tbody>
                 </table>
             </div>

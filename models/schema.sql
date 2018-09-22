@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 DROP DATABASE IF EXISTS vanpool;
+=======
+DROP database if EXISTS vanpool;
+
+>>>>>>> e31e26c18a321bbf72cd2e86e15311bf515a953e
 CREATE DATABASE vanpool;
 use vanpool;
 
@@ -8,5 +13,3 @@ SELECT * FROM vantrips;
 SELECT * FROM vantripgroups;
 DROP DATABASE vanpool;
 
-
-SELECT * FROM vanGroups WHERE vanGroup_ID = 1340 AND vanGroup_admin_ID = !null;

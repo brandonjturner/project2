@@ -5,12 +5,7 @@ var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var db = require("./models");
 var app = express();
-<<<<<<< HEAD
-var passport = require("passport");
-=======
-var moment = require("moment");
-// var passport = require("passport");
->>>>>>> e31e26c18a321bbf72cd2e86e15311bf515a953e
+var passport = require('passport') , LocalStrategy = require('passport-local').Strategy;
 var PORT = process.env.PORT || 3000;
 
 var session    = require('express-session')
@@ -19,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(bodyParser.json());
 
 // For Passport
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+//app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 

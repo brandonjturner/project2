@@ -7,7 +7,7 @@ app.get('/createprofile', authController.signup);
 app.get('/signin', authController.signin);
 
 app.post('/createprofile', passport.authenticate('local-signup',  { successRedirect: '/loginredirect',
-                                                    failureRedirect: '/create-profile'}
+                                                    failureRedirect: '/createprofile'}
                                                     ));
 
 app.get('/profile/:id',isLoggedIn, authController.dashboard);

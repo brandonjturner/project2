@@ -39,25 +39,9 @@
                 data: bodyData,
                 async: false,
                 success: function (data) {
-<<<<<<< HEAD
                     console.log(data);
                     window.sessionStorage.setItem('current-user-ID', data.id);
                     window.location.href = "/profile/" + data.id;
-=======
-                    if (data != null) {
-                        //console.log('test');
-                        window.sessionStorage.setItem('current-user-ID', data.id);
-                        window.sessionStorage.setItem('user-logged-in', true);
-                        window.location.href = "/profile/" + data.id;
-                    }
-<<<<<<< HEAD
->>>>>>> 4d77d546254889d52b771f6d7ae5f5cfe8944cd7
-=======
-                    else {
-                        $('.incorrect').css('color', 'red');
-                        $('.incorrect').text("Incorrect Username or Password");
-                    }
->>>>>>> e31e26c18a321bbf72cd2e86e15311bf515a953e
                 }
             });
         });
